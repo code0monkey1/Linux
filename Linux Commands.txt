@@ -1,0 +1,162 @@
+Linux User Level Command
+Here is the compiled list of basic Linux user commands required for working on Linux platform.
+
+ls
+Listing of files and folders
+
+Optional Arguments
+-a, --all 
+    do not hide entries starting with . 
+-l 
+    use a long listing format 
+-r, --reverse 
+    reverse order while sorting 
+-s, --size 
+    print size of each file, in blocks 
+-x 
+    list entries by lines instead of by columns 
+cp
+Copy files and directories
+
+Optional Arguments
+f, --force 
+   if an existing destination file cannot be opened, remove it and try again 
+-i, --interactive 
+    prompt before overwrite
+-l, --link 
+   link files instead of copying 
+-R, -r, --recursive 
+   copy directories recursively 
+v, --verbose 
+   explain what is being done 
+-x, --one-file-system 
+   stay on this file system 
+mkdir
+Make a directory if it does not already exist 
+
+rm
+Remove files and folders. By default, it does not remove folders
+
+Optional Arguments
+-f, --force
+    ignore nonexistent files, never prompt 
+-i, --interactive 
+    prompt before any removal 
+-r, -R, --recursive 
+    remove the contents of directories recursively 
+-v, --verbose 
+    explain what is being done 
+rm -rf
+Removes folders and files in recursively without asking confirmation from user 
+
+cd
+Change directory 
+
+pwd
+Show the name of the current working directory
+
+ln
+Creates links to a file. Useful for creating alias for long file names
+
+Optional Arguments
+-i, --interactive 
+    prompt whether to remove destinations 
+-s, --symbolic
+    make symbolic links instead of hard links 
+
+mv
+Moves or renames file. 
+
+Optional Arguments
+-f, --force 
+    do not prompt before overwriting 
+-i, --interactive 
+    prompt before overwrite equivalent 
+
+rmdir
+Deletes directories
+chmod
+Change permission for file or directory. There are three types of access:
+1. read 
+2. write 
+3. execute
+Each file belongs to a specific user and group. Access to the files is controlled by user, group, and what is called other.
+The format is `[ugo][[+-=][rwx] 
+The operator `+' causes the permissions selected to be added to the existing permissions . `-' causes permissions to be removed; and `=' causes them to be the only permissions that the file has. 
+The letters `rwx' select the new permissions for the affected users: read (r), write (w), execute (or access for directories) (x).
+
+cat
+Concatenate the files and sends the file to standard output
+
+Optional Arguments
+-n, --number 
+    number all output lines 
+-s, --squeeze-blank 
+    never more than one single blank line 
+
+df
+Show the amount of disk space used on each mounted files system.
+du
+Print disk usage (as the number of 1 KB blocks used by each named directory and its subdirectories; default is the current directory).
+-a, --all
+    write counts for all files, not just directories 
+-B, --block-size=SIZE use SIZE-byte blocks 
+-b, --bytes 
+    print size in bytes 
+-c, --total 
+    produce a grand total 
+
+find
+Searches for files in the directory hierarchy
+
+locate
+Searches for files in the directory hierarchy. Locate command works faster than find command
+
+grep
+Searches for regular expression or a pattern in file. By defaults prints the matching lines
+Usage
+$ grep "Hello" file1
+
+man
+This command is a manual for Linux commands. Provides help for any command in Linux. To find the usage and all the options available with that command type man command
+
+chown
+Change owner, change the user and/or group ownership of each given file to a new Owner.
+tar
+Create tape archives and add or extract files. Basically used to compress and decompress files
+
+Optional Arguments
+-r, --append 
+    append files to the end of an archive
+-t, --list 
+    list the contents of an archive
+-u, --update 
+    only append files that are newer than copy in archive
+-x, --extract, --get 
+    extract files from an archive
+-v, --verbose 
+    verbosely list files processed
+-w, --interactive, --confirmation 
+    ask for confirmation for every action
+-z, --gzip, --ungzip 
+    filter the archive through gzip
+
+Creating a tar file:
+tar -cvf file.tar filetobetarred.txt
+It would create a tar named file.tar in the directory you currently are in. 
+
+tar -cvf mydir.tar mydir/
+In the above example command the system would create a tar file named mydir.tar in the directory you currently are in.
+
+Extracting the files from a tar file:
+tar -xvf testfile.tar
+In the above example command the system would uncompress (untar) the testfile.tar file in the current directory.
+
+gzip/gunzip
+gzip, gunzip, zcat - compress or expand files
+Gzip reduces the size of the named files using Lempel-Ziv coding (LZ77). Whenever possible, each file is replaced by one with the extension .gz, while keeping the same ownership modes, access and modification times. 
+Compressed files can be restored to their original form using gzip -d or gunzip 
+
+Find and Replace in vi editor
+Search and Replace a word in whole file
+Example ": %s/Test/Text/g" - For all lines in a file, find string "Test" and replace with string "Text" for each instance in a file. Run the command in Esc mode in vi editor.
